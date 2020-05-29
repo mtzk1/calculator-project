@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-areas:    "display display"
+                            "number  operations"
+                            "number  operations"
+                            "number  operations"
+                            "number  operations";
+}
+.display {
+    border: 1px solid black;
+    width: 960px;
+    height: 50px;
+    margin: 50px 50px 50px 50px;
+    grid-area: display;
+    justify-self: center;
+}
+.numberpad {
+    grid-area: number;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.operations {
+    grid-area: operations;
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
