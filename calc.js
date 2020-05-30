@@ -1,37 +1,3 @@
-/*
-function add(array) {
-    let length = array.length
-    let total = 0
-    for (i=0; i<length; i++) {
-        total += array[i]
-    }
-    return total;
-}
-function subtract(array) {
-    let length = array.length
-    let total = array[0]
-    for (i=1; i<length; i++) {
-        total -= array[i]
-    }
-    return total;
-}
-function multiply(array) {
-    let length = array.length
-    let total = array[0]
-    for (i=1; i<length; i++) {
-        total *= array[i]
-    }
-    return total;
-}
-function divide(array) {
-    let length = array.length
-    let total = array[0]
-    for (i=1; i<length; i++) {
-        total /= array[i]
-    }
-    return total;
-}
-*/
 function add(x,y) {
     return x+y;
 }
@@ -51,7 +17,7 @@ function operate(operator,no1,no2) {
         return subtract(no1,no2);
     } else if (operator == "x") {
         return multiply(no1,no2);
-    } else if (operator == "/") {
+    } else if (operator == "÷") {
         return divide(no1,no2);
     }
 }
@@ -233,3 +199,10 @@ butdiv.addEventListener("click", () => {
         updateDisplay();
     }
 });
+const equal = document.querySelector(".equal");
+equal.addEventListener("click", () => {
+    let ans = operate(displayArray[1],Number(displayArray[0]),Number(displayArray[2]));
+    displayArray = [];
+    displayArray.push(String(ans));
+    updateDisplay;
+})
