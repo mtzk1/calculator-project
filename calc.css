@@ -11,19 +11,33 @@
     width: 960px;
     height: 50px;
     margin: 50px 50px 50px 50px;
+    padding: 0px 0px 30px 0px;
     grid-area: display;
     justify-self: center;
 }
 .numberpad {
     grid-area: number;
-    justify-items: center;
+    justify-items: end;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 10px;
 }
 .operations {
     grid-area: operations;
     justify-items: center;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
+}
+button {
+    height: 100px;
+    width: 200px;
+    font-size: 20px;
+}
+button:hover {
+    box-shadow: 0px 0px 1px 1px black;
+}
+p {
+    padding-left: 50px;
+    font-size: 30px;
 }
