@@ -18,9 +18,36 @@ function operate(operator,no1,no2) {
     } else if (operator == "x") {
         return multiply(no1,no2);
     } else if (operator == "÷") {
+        if (no2 == 0) {
+            return "fuckyou";
+        } else {
         return divide(no1,no2);
+        }
     }
 }
+function identifyNumbers(array) {
+    let length = array.length
+    let element = ""
+    let newArray = []
+    var i
+    for (i=0;i<length;i++) {
+        if (isNaN(Number(array[i])) == false) {
+            element += String(array[i]);
+        } else if (array[i] == "+"||"="||"x"||"÷") {
+            if (i == 0) {
+                newArray.push(0);
+                newArray.push(array[i]);
+            } else {
+                newArray.push(Number(element));
+                newArray.push(array[i]);
+                element = ""
+            }
+        }
+    }
+    newArray.push(Number(element));
+    return newArray;
+}
+
 function displayStr(array) {
     let length = array.length;
     let str = String(array[0]);
@@ -201,7 +228,8 @@ butdiv.addEventListener("click", () => {
 });
 const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
-    let ans = operate(displayArray[1],Number(displayArray[0]),Number(displayArray[2]));
+    let identified = identifyNumbers(displayArray);
+    let ans = operate(identified[1],Number(identified[0]),Number(identified[2]));
     displayArray = [];
     displayArray.push(String(ans));
     updateDisplay;
